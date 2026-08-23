@@ -922,7 +922,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     #riemann-x2 .rx2-methods button[aria-pressed=&quot;true&quot;] { color:var(--background); background:var(--foreground); border-color:var(--foreground); font-weight:650; }
     #riemann-x2 .rx2-exact { font-size:18px; font-weight:700; font-variant-numeric:tabular-nums; }
     #riemann-x2 .rx2-formula { color:var(--muted-foreground); font-size:12px; margin-top:4px; }
-    #riemann-x2 .rx2-plot { position:relative; width:100%; min-height:0; }
+    #riemann-x2 .rx2-plot { position:relative; width:min(100%,780px); min-height:0; margin:0 auto; }
     #riemann-x2 svg { display:block; width:100%; height:auto; }
     #riemann-x2 text { fill:var(--foreground); font-size:12px; }
     #riemann-x2 .rx2-grid { stroke:var(--border); stroke-width:1; opacity:.55; }
@@ -936,7 +936,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     #riemann-x2 .rx2-stat { padding:13px; min-width:0; border:1px solid var(--border); border-radius:14px; }
     #riemann-x2 .rx2-label { color:var(--muted-foreground); font-size:11px; text-transform:uppercase; letter-spacing:.045em; }
     #riemann-x2 .rx2-value { font-size:17px; font-variant-numeric:tabular-nums; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    #riemann-x2 .rx2-error { color:var(--muted-foreground); font-size:12px; margin-top:4px; font-variant-numeric:tabular-nums; }
+    #riemann-x2 .rx2-error { color:var(--muted-foreground); font-size:12px; line-height:1.55; margin-top:5px; font-variant-numeric:tabular-nums; white-space:pre-line; }
     #riemann-x2 .rx2-note { color:var(--muted-foreground); font-size:12px; margin-top:9px; }
     @media (max-width:520px) {
       #riemann-x2 { padding:12px 8px 18px; }
@@ -957,9 +957,9 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;div class=&quot;rx2-card&quot;&gt;
       &lt;div class=&quot;rx2-card-title&quot;&gt;Rectángulos a visualizar&lt;/div&gt;
       &lt;div class=&quot;rx2-methods&quot; aria-label=&quot;Método de aproximación&quot;&gt;
-        &lt;button type=&quot;button&quot; data-method=&quot;upper&quot; aria-pressed=&quot;true&quot;&gt;Suma superior&lt;/button&gt;
-        &lt;button type=&quot;button&quot; data-method=&quot;lower&quot; aria-pressed=&quot;false&quot;&gt;Suma inferior&lt;/button&gt;
+        &lt;button type=&quot;button&quot; data-method=&quot;lower&quot; aria-pressed=&quot;true&quot;&gt;Suma inferior&lt;/button&gt;
         &lt;button type=&quot;button&quot; data-method=&quot;mid&quot; aria-pressed=&quot;false&quot;&gt;Punto medio&lt;/button&gt;
+        &lt;button type=&quot;button&quot; data-method=&quot;upper&quot; aria-pressed=&quot;false&quot;&gt;Suma superior&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;rx2-card&quot;&gt;
@@ -969,10 +969,10 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;rx2-plot&quot;&gt;&lt;svg role=&quot;img&quot; aria-label=&quot;Gráfica de x al cuadrado y rectángulos de aproximación&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
-  &lt;div class=&quot;rx2-summary&quot;&gt;
-    &lt;div class=&quot;rx2-stat&quot;&gt;&lt;div class=&quot;rx2-label&quot;&gt;Suma superior&lt;/div&gt;&lt;div class=&quot;rx2-value&quot; data-upper&gt;&lt;/div&gt;&lt;div class=&quot;rx2-error&quot; data-upper-error&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;rx2-summary&quot; aria-live=&quot;polite&quot;&gt;
     &lt;div class=&quot;rx2-stat&quot;&gt;&lt;div class=&quot;rx2-label&quot;&gt;Suma inferior&lt;/div&gt;&lt;div class=&quot;rx2-value&quot; data-lower&gt;&lt;/div&gt;&lt;div class=&quot;rx2-error&quot; data-lower-error&gt;&lt;/div&gt;&lt;/div&gt;
     &lt;div class=&quot;rx2-stat&quot;&gt;&lt;div class=&quot;rx2-label&quot;&gt;Punto medio&lt;/div&gt;&lt;div class=&quot;rx2-value&quot; data-mid&gt;&lt;/div&gt;&lt;div class=&quot;rx2-error&quot; data-mid-error&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;rx2-stat&quot;&gt;&lt;div class=&quot;rx2-label&quot;&gt;Suma superior&lt;/div&gt;&lt;div class=&quot;rx2-value&quot; data-upper&gt;&lt;/div&gt;&lt;div class=&quot;rx2-error&quot; data-upper-error&gt;&lt;/div&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;rx2-note&quot; data-note&gt;&lt;/div&gt;
   &lt;script&gt;
@@ -982,7 +982,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       const plot = root.querySelector(&#x27;.rx2-plot&#x27;);
       const slider = root.querySelector(&#x27;[data-slider]&#x27;);
       const exact = 1 / 3;
-      let method = &#x27;upper&#x27;;
+      let method = &#x27;lower&#x27;;
       const f = x =&gt; x * x;
       const fmt = v =&gt; v.toFixed(8).replace(/0+$/, &#x27;&#x27;).replace(/\.$/, &#x27;&#x27;);
       function sums(n) {
@@ -1002,7 +1002,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       function draw() {
         const n = +slider.value;
         const width = Math.max(320, Math.round(plot.getBoundingClientRect().width));
-        const height = width &lt; 520 ? 270 : 330;
+        const height = width &lt; 520 ? 290 : 400;
         const m = { l: 58, r: 18, t: 20, b: 48 };
         const iw = width - m.l - m.r, ih = height - m.t - m.b;
         const x = v =&gt; m.l + v * iw;
@@ -1036,9 +1036,11 @@ html&gt;body{padding:0}&lt;/style&gt;
         svg.append(el(&#x27;text&#x27;,{x:x(.72),y:y(.72*.72)-12,&#x27;text-anchor&#x27;:&#x27;start&#x27;},&#x27;f(x) = x²&#x27;));
         const s=sums(n), approx=s[method], names={upper:&#x27;superior&#x27;,lower:&#x27;inferior&#x27;,mid:&#x27;del punto medio&#x27;};
         root.querySelector(&#x27;[data-n]&#x27;).textContent=n;
-        [&#x27;upper&#x27;,&#x27;lower&#x27;,&#x27;mid&#x27;].forEach(key =&gt; {
+        [&#x27;lower&#x27;,&#x27;mid&#x27;,&#x27;upper&#x27;].forEach(key =&gt; {
+          const absoluteError = Math.abs(s[key] - exact);
+          const relativeError = absoluteError / Math.abs(exact);
           root.querySelector(`[data-${key}]`).textContent=fmt(s[key]);
-          root.querySelector(`[data-${key}-error]`).textContent=`Error relativo: ${(Math.abs(s[key]-exact)/exact*100).toFixed(5)}%`;
+          root.querySelector(`[data-${key}-error]`).textContent=`Error absoluto: ${fmt(absoluteError)}\nError relativo: ${fmt(relativeError)}\nError relativo porcentual: ${(relativeError*100).toFixed(5)}%`;
         });
         root.querySelector(&#x27;[data-note]&#x27;).textContent=`La suma ${names[method]} ${approx&gt;exact?&#x27;sobreestima&#x27;:approx&lt;exact?&#x27;subestima&#x27;:&#x27;coincide con&#x27;} el área exacta por ${fmt(Math.abs(approx-exact))}.`;
       }
