@@ -907,7 +907,7 @@ html&gt;body{padding:0}&lt;/style&gt;
 &lt;body&gt;
 &lt;div id=&quot;riemann-x2&quot; class=&quot;rx2-root&quot;&gt;
   &lt;style&gt;
-    #riemann-x2 { color: var(--foreground); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif; }
+    #riemann-x2 { width:min(100%,1040px); margin:0 auto; padding:clamp(14px,2.5vw,28px); color:var(--foreground); font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif; overflow:hidden; }
     #riemann-x2 * { box-sizing: border-box; }
     #riemann-x2 h2 { margin:0 0 14px; font-size:21px; line-height:1.2; }
     #riemann-x2 .rx2-sub { color:var(--muted-foreground); font-size:13px; }
@@ -922,7 +922,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     #riemann-x2 .rx2-methods button[aria-pressed=&quot;true&quot;] { color:var(--background); background:var(--foreground); border-color:var(--foreground); font-weight:650; }
     #riemann-x2 .rx2-exact { font-size:18px; font-weight:700; font-variant-numeric:tabular-nums; }
     #riemann-x2 .rx2-formula { color:var(--muted-foreground); font-size:12px; margin-top:4px; }
-    #riemann-x2 .rx2-plot { position:relative; width:100%; min-height:310px; }
+    #riemann-x2 .rx2-plot { position:relative; width:100%; min-height:0; }
     #riemann-x2 svg { display:block; width:100%; height:auto; }
     #riemann-x2 text { fill:var(--foreground); font-size:12px; }
     #riemann-x2 .rx2-grid { stroke:var(--border); stroke-width:1; opacity:.55; }
@@ -939,9 +939,10 @@ html&gt;body{padding:0}&lt;/style&gt;
     #riemann-x2 .rx2-error { color:var(--muted-foreground); font-size:12px; margin-top:4px; font-variant-numeric:tabular-nums; }
     #riemann-x2 .rx2-note { color:var(--muted-foreground); font-size:12px; margin-top:9px; }
     @media (max-width:520px) {
+      #riemann-x2 { padding:12px 8px 18px; }
       #riemann-x2 .rx2-top { grid-template-columns:1fr; }
       #riemann-x2 .rx2-summary { grid-template-columns:1fr; }
-      #riemann-x2 .rx2-plot { min-height:270px; }
+      #riemann-x2 .rx2-methods button { flex:1 1 auto; }
     }
   &lt;/style&gt;
   &lt;h2&gt;Applet de Darboux — f(x) = x² en [0, 1]&lt;/h2&gt;
