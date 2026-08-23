@@ -938,6 +938,8 @@ html&gt;body{padding:0}&lt;/style&gt;
     #riemann-x2 .rx2-value { font-size:17px; font-variant-numeric:tabular-nums; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
     #riemann-x2 .rx2-error { color:var(--muted-foreground); font-size:12px; line-height:1.55; margin-top:5px; font-variant-numeric:tabular-nums; white-space:pre-line; }
     #riemann-x2 .rx2-note { color:var(--muted-foreground); font-size:12px; margin-top:9px; }
+    #riemann-x2 .rx2-footer { color:var(--muted-foreground); font-size:11px; margin-top:18px; padding-top:10px; border-top:1px solid var(--border); text-align:center; }
+    #riemann-x2 .rx2-footer a { color:inherit; text-underline-offset:2px; }
     @media (max-width:520px) {
       #riemann-x2 { padding:12px 8px 18px; }
       #riemann-x2 .rx2-top { grid-template-columns:1fr; }
@@ -975,6 +977,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;div class=&quot;rx2-stat&quot;&gt;&lt;div class=&quot;rx2-label&quot;&gt;Suma superior&lt;/div&gt;&lt;div class=&quot;rx2-value&quot; data-upper&gt;&lt;/div&gt;&lt;div class=&quot;rx2-error&quot; data-upper-error&gt;&lt;/div&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;rx2-note&quot; data-note&gt;&lt;/div&gt;
+  &lt;footer class=&quot;rx2-footer&quot;&gt;Diseñado por el Departamento de Matemática Aplicada de Universidad Galileo + IA · &lt;a href=&quot;mailto:alberth@galileo.edu&quot;&gt;alberth@galileo.edu&lt;/a&gt;&lt;/footer&gt;
   &lt;script&gt;
     (() =&gt; {
       const root = document.getElementById(&#x27;riemann-x2&#x27;);
