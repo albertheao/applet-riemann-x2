@@ -17,6 +17,8 @@
 &lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
 &lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
 &lt;title&gt;Sumas Riemann X Cuadrado&lt;/title&gt;
+&lt;script&gt;MathJax={tex:{inlineMath:[[&#x27;\\(&#x27;,&#x27;\\)&#x27;]],displayMath:[[&#x27;\\[&#x27;,&#x27;\\]&#x27;]]},svg:{fontCache:&#x27;global&#x27;}};&lt;/script&gt;
+&lt;script id=&quot;MathJax-script&quot; async src=&quot;https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js&quot;&gt;&lt;/script&gt;
 &lt;style&gt;:root {
   color-scheme: light dark;
   background-color: var(
@@ -925,8 +927,8 @@ html&gt;body{padding:0}&lt;/style&gt;
     #riemann-x2 .rx2-exact { font-size:18px; font-weight:700; font-variant-numeric:tabular-nums; }
     #riemann-x2 .rx2-formula { color:var(--muted-foreground); font-size:12px; margin-top:4px; }
     #riemann-x2 .rx2-plot { position:relative; width:100%; min-height:310px; }
-    #riemann-x2 svg { display:block; width:100%; height:auto; }
-    #riemann-x2 text { fill:var(--foreground); font-size:12px; }
+    #riemann-x2 .rx2-plot &gt; svg { display:block; width:100%; height:auto; }
+    #riemann-x2 .rx2-plot &gt; svg text { fill:var(--foreground); font-size:12px; }
     #riemann-x2 .rx2-grid { stroke:var(--border); stroke-width:1; opacity:.55; }
     #riemann-x2 .rx2-axis { stroke:var(--foreground); stroke-width:1.1; }
     #riemann-x2 .rx2-frame { fill:none; stroke:var(--border); }
@@ -950,14 +952,14 @@ html&gt;body{padding:0}&lt;/style&gt;
     }
   &lt;/style&gt;
   &lt;p class=&quot;rx2-institution&quot;&gt;Universidad Galileo · Departamento de Matemática Aplicada&lt;/p&gt;
-  &lt;h2&gt;Sumas de Darboux — f(x) = x² en [0, 1]&lt;/h2&gt;
+  &lt;h2&gt;Sumas de Darboux — \(f(x)=x^2\) en \([0,1]\)&lt;/h2&gt;
   &lt;div class=&quot;rx2-top&quot;&gt;
     &lt;div class=&quot;rx2-card&quot;&gt;
       &lt;label class=&quot;rx2-control&quot;&gt;
-        &lt;span class=&quot;rx2-control-head&quot;&gt;&lt;span&gt;Número de rectángulos (N)&lt;/span&gt;&lt;strong data-n&gt;8&lt;/strong&gt;&lt;/span&gt;
+        &lt;span class=&quot;rx2-control-head&quot;&gt;&lt;span&gt;Número de rectángulos (n)&lt;/span&gt;&lt;strong data-n&gt;8&lt;/strong&gt;&lt;/span&gt;
         &lt;input data-slider type=&quot;range&quot; min=&quot;1&quot; max=&quot;80&quot; step=&quot;1&quot; value=&quot;8&quot; aria-label=&quot;Número de rectángulos&quot;&gt;
       &lt;/label&gt;
-      &lt;div class=&quot;rx2-formula&quot;&gt;Partición uniforme de [0, 1]&lt;/div&gt;
+      &lt;div class=&quot;rx2-formula&quot;&gt;Partición uniforme de \([0,1]\)&lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;rx2-card&quot;&gt;
       &lt;div class=&quot;rx2-card-title&quot;&gt;Rectángulos a visualizar&lt;/div&gt;
@@ -968,9 +970,9 @@ html&gt;body{padding:0}&lt;/style&gt;
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;rx2-card&quot;&gt;
-      &lt;div class=&quot;rx2-card-title&quot;&gt;Área exacta en [0, 1]&lt;/div&gt;
-      &lt;div class=&quot;rx2-exact&quot;&gt;0.33333333 = 1/3&lt;/div&gt;
-      &lt;div class=&quot;rx2-formula&quot;&gt;F(x) = x³/3&lt;/div&gt;
+      &lt;div class=&quot;rx2-card-title&quot;&gt;Área exacta en \([0,1]\)&lt;/div&gt;
+      &lt;div class=&quot;rx2-exact&quot;&gt;\(\displaystyle \int_0^1 x^2\,dx=\frac13\)&lt;/div&gt;
+      &lt;div class=&quot;rx2-formula&quot;&gt;\(F(x)=\frac{x^3}{3}\)&lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;rx2-plot&quot;&gt;&lt;svg role=&quot;img&quot; aria-label=&quot;Gráfica de x al cuadrado y rectángulos de aproximación&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
@@ -984,7 +986,7 @@ html&gt;body{padding:0}&lt;/style&gt;
   &lt;script&gt;
     (() =&gt; {
       const root = document.getElementById(&#x27;riemann-x2&#x27;);
-      const svg = root.querySelector(&#x27;svg&#x27;);
+      const svg = root.querySelector(&#x27;.rx2-plot &gt; svg&#x27;);
       const plot = root.querySelector(&#x27;.rx2-plot&#x27;);
       const slider = root.querySelector(&#x27;[data-slider]&#x27;);
       const exact = 1 / 3;
