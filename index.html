@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
-<title>Sumas Riemann X Cuadrado</title>
-<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+<title>Sumas de Darboux para f(x) = x²</title>
+<style>:root{color-scheme:light;background:#edf4f6}html,body{margin:0}body{box-sizing:border-box;padding:8px;background:linear-gradient(180deg,#12324a 0 8px,#edf4f6 8px 100%)}iframe{display:block;width:min(100%,1120px);height:calc(100vh - 16px);margin:0 auto;border:0}</style>
 </head>
 <body>
-<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Sumas Riemann X Cuadrado" srcdoc="&lt;!doctype html&gt;
+<iframe sandbox="allow-scripts" referrerpolicy="no-referrer" title="Sumas de Darboux para f(x) = x²" srcdoc="&lt;!doctype html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
 &lt;meta charset=&quot;utf-8&quot;&gt;
@@ -907,22 +907,24 @@ html&gt;body{padding:0}&lt;/style&gt;
 &lt;body&gt;
 &lt;div id=&quot;riemann-x2&quot; class=&quot;rx2-root&quot;&gt;
   &lt;style&gt;
-    #riemann-x2 { width:min(100%,1040px); margin:0 auto; padding:clamp(14px,2.5vw,28px); color:var(--foreground); font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif; overflow:hidden; }
+    #riemann-x2 { --dma-navy:#12324a; --dma-blue:#0b6380; --dma-gold:#d6a52a; --dma-ice:#edf4f6; color:var(--dma-navy); font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,sans-serif; max-width:1080px; margin:0 auto; padding:22px 18px; }
     #riemann-x2 * { box-sizing: border-box; }
-    #riemann-x2 h2 { margin:0 0 14px; font-size:21px; line-height:1.2; }
+    #riemann-x2 h2 { margin:3px 0 16px; padding-left:16px; border-left:5px solid var(--dma-gold); color:var(--dma-navy); font-size:clamp(22px,4vw,32px); line-height:1.2; letter-spacing:-.02em; }
+    #riemann-x2 .rx2-institution { margin:0 0 8px; color:var(--dma-blue); font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
     #riemann-x2 .rx2-sub { color:var(--muted-foreground); font-size:13px; }
     #riemann-x2 .rx2-top { display:grid; grid-template-columns:1fr 1.35fr 1fr; gap:12px; margin-bottom:14px; }
-    #riemann-x2 .rx2-card { border:1px solid var(--border); border-radius:14px; padding:13px; min-width:0; }
+    #riemann-x2 .rx2-card { border:1px solid #d7e2e7; border-radius:14px; padding:13px; min-width:0; background:#fff; box-shadow:0 8px 24px rgba(18,50,74,.07); }
     #riemann-x2 .rx2-card-title { font-size:13px; font-weight:650; margin-bottom:8px; }
     #riemann-x2 .rx2-control { display:block; }
     #riemann-x2 .rx2-control-head { display:flex; justify-content:space-between; align-items:center; font-size:13px; margin-bottom:5px; }
-    #riemann-x2 input[type=&quot;range&quot;] { width:100%; accent-color:var(--viz-series-1); }
+    #riemann-x2 input[type=&quot;range&quot;] { width:100%; accent-color:var(--dma-blue); }
     #riemann-x2 .rx2-methods { display:flex; flex-wrap:wrap; gap:6px; }
     #riemann-x2 .rx2-methods button { appearance:none; border:1px solid var(--border); border-radius:9px; background:transparent; padding:7px 9px; color:var(--foreground); font:inherit; font-size:12px; cursor:pointer; }
-    #riemann-x2 .rx2-methods button[aria-pressed=&quot;true&quot;] { color:var(--background); background:var(--foreground); border-color:var(--foreground); font-weight:650; }
+    #riemann-x2 .rx2-methods button[aria-pressed=&quot;true&quot;] { color:#fff; background:var(--dma-blue); border-color:var(--dma-blue); font-weight:650; }
+    #riemann-x2 button:focus-visible, #riemann-x2 input:focus-visible { outline:3px solid rgba(214,165,42,.4); outline-offset:2px; }
     #riemann-x2 .rx2-exact { font-size:18px; font-weight:700; font-variant-numeric:tabular-nums; }
     #riemann-x2 .rx2-formula { color:var(--muted-foreground); font-size:12px; margin-top:4px; }
-    #riemann-x2 .rx2-plot { position:relative; width:min(100%,780px); min-height:0; margin:0 auto; }
+    #riemann-x2 .rx2-plot { position:relative; width:100%; min-height:310px; }
     #riemann-x2 svg { display:block; width:100%; height:auto; }
     #riemann-x2 text { fill:var(--foreground); font-size:12px; }
     #riemann-x2 .rx2-grid { stroke:var(--border); stroke-width:1; opacity:.55; }
@@ -933,21 +935,22 @@ html&gt;body{padding:0}&lt;/style&gt;
     #riemann-x2 .rx2-rect { fill:var(--viz-series-1); fill-opacity:.24; stroke:var(--viz-series-1); stroke-width:1; }
     #riemann-x2 .rx2-sample { fill:var(--viz-series-1); stroke:var(--background); stroke-width:1.5; }
     #riemann-x2 .rx2-summary { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:14px; }
-    #riemann-x2 .rx2-stat { padding:13px; min-width:0; border:1px solid var(--border); border-radius:14px; }
+    #riemann-x2 .rx2-stat { padding:13px; min-width:0; border:1px solid #d7e2e7; border-radius:14px; background:#fff; }
     #riemann-x2 .rx2-label { color:var(--muted-foreground); font-size:11px; text-transform:uppercase; letter-spacing:.045em; }
     #riemann-x2 .rx2-value { font-size:17px; font-variant-numeric:tabular-nums; margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    #riemann-x2 .rx2-error { color:var(--muted-foreground); font-size:12px; line-height:1.55; margin-top:5px; font-variant-numeric:tabular-nums; white-space:pre-line; }
+    #riemann-x2 .rx2-error { color:var(--muted-foreground); font-size:12px; margin-top:4px; font-variant-numeric:tabular-nums; }
     #riemann-x2 .rx2-note { color:var(--muted-foreground); font-size:12px; margin-top:9px; }
-    #riemann-x2 .rx2-footer { color:var(--muted-foreground); font-size:11px; margin-top:18px; padding-top:10px; border-top:1px solid var(--border); text-align:center; }
-    #riemann-x2 .rx2-footer a { color:inherit; text-underline-offset:2px; }
+    #riemann-x2 .rx2-footer { margin-top:22px; padding-top:16px; border-top:1px solid #cbd9df; color:#526b79; font-size:12px; line-height:1.7; text-align:center; }
+    #riemann-x2 .rx2-footer strong { color:var(--dma-navy); }
+    #riemann-x2 .rx2-footer a { color:var(--dma-blue); text-decoration:underline; text-underline-offset:3px; }
     @media (max-width:520px) {
-      #riemann-x2 { padding:12px 8px 18px; }
       #riemann-x2 .rx2-top { grid-template-columns:1fr; }
       #riemann-x2 .rx2-summary { grid-template-columns:1fr; }
-      #riemann-x2 .rx2-methods button { flex:1 1 auto; }
+      #riemann-x2 .rx2-plot { min-height:270px; }
     }
   &lt;/style&gt;
-  &lt;h2&gt;Applet de Darboux — f(x) = x² en [0, 1]&lt;/h2&gt;
+  &lt;p class=&quot;rx2-institution&quot;&gt;Universidad Galileo · Departamento de Matemática Aplicada&lt;/p&gt;
+  &lt;h2&gt;Sumas de Darboux — f(x) = x² en [0, 1]&lt;/h2&gt;
   &lt;div class=&quot;rx2-top&quot;&gt;
     &lt;div class=&quot;rx2-card&quot;&gt;
       &lt;label class=&quot;rx2-control&quot;&gt;
@@ -959,9 +962,9 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;div class=&quot;rx2-card&quot;&gt;
       &lt;div class=&quot;rx2-card-title&quot;&gt;Rectángulos a visualizar&lt;/div&gt;
       &lt;div class=&quot;rx2-methods&quot; aria-label=&quot;Método de aproximación&quot;&gt;
-        &lt;button type=&quot;button&quot; data-method=&quot;lower&quot; aria-pressed=&quot;true&quot;&gt;Suma inferior&lt;/button&gt;
+        &lt;button type=&quot;button&quot; data-method=&quot;upper&quot; aria-pressed=&quot;true&quot;&gt;Suma superior&lt;/button&gt;
+        &lt;button type=&quot;button&quot; data-method=&quot;lower&quot; aria-pressed=&quot;false&quot;&gt;Suma inferior&lt;/button&gt;
         &lt;button type=&quot;button&quot; data-method=&quot;mid&quot; aria-pressed=&quot;false&quot;&gt;Punto medio&lt;/button&gt;
-        &lt;button type=&quot;button&quot; data-method=&quot;upper&quot; aria-pressed=&quot;false&quot;&gt;Suma superior&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;rx2-card&quot;&gt;
@@ -971,13 +974,13 @@ html&gt;body{padding:0}&lt;/style&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;rx2-plot&quot;&gt;&lt;svg role=&quot;img&quot; aria-label=&quot;Gráfica de x al cuadrado y rectángulos de aproximación&quot;&gt;&lt;/svg&gt;&lt;/div&gt;
-  &lt;div class=&quot;rx2-summary&quot; aria-live=&quot;polite&quot;&gt;
+  &lt;div class=&quot;rx2-summary&quot;&gt;
+    &lt;div class=&quot;rx2-stat&quot;&gt;&lt;div class=&quot;rx2-label&quot;&gt;Suma superior&lt;/div&gt;&lt;div class=&quot;rx2-value&quot; data-upper&gt;&lt;/div&gt;&lt;div class=&quot;rx2-error&quot; data-upper-error&gt;&lt;/div&gt;&lt;/div&gt;
     &lt;div class=&quot;rx2-stat&quot;&gt;&lt;div class=&quot;rx2-label&quot;&gt;Suma inferior&lt;/div&gt;&lt;div class=&quot;rx2-value&quot; data-lower&gt;&lt;/div&gt;&lt;div class=&quot;rx2-error&quot; data-lower-error&gt;&lt;/div&gt;&lt;/div&gt;
     &lt;div class=&quot;rx2-stat&quot;&gt;&lt;div class=&quot;rx2-label&quot;&gt;Punto medio&lt;/div&gt;&lt;div class=&quot;rx2-value&quot; data-mid&gt;&lt;/div&gt;&lt;div class=&quot;rx2-error&quot; data-mid-error&gt;&lt;/div&gt;&lt;/div&gt;
-    &lt;div class=&quot;rx2-stat&quot;&gt;&lt;div class=&quot;rx2-label&quot;&gt;Suma superior&lt;/div&gt;&lt;div class=&quot;rx2-value&quot; data-upper&gt;&lt;/div&gt;&lt;div class=&quot;rx2-error&quot; data-upper-error&gt;&lt;/div&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;rx2-note&quot; data-note&gt;&lt;/div&gt;
-  &lt;footer class=&quot;rx2-footer&quot;&gt;Diseñado por el Departamento de Matemática Aplicada de Universidad Galileo + IA · &lt;a href=&quot;mailto:alberth@galileo.edu&quot;&gt;alberth@galileo.edu&lt;/a&gt;&lt;/footer&gt;
+  &lt;footer class=&quot;rx2-footer&quot;&gt;&lt;strong&gt;Departamento de Matemática Aplicada&lt;/strong&gt; · Universidad Galileo&lt;br&gt;Applet educativo desarrollado con apoyo de IA · &lt;a href=&quot;mailto:alberth@galileo.edu&quot;&gt;alberth@galileo.edu&lt;/a&gt;&lt;/footer&gt;
   &lt;script&gt;
     (() =&gt; {
       const root = document.getElementById(&#x27;riemann-x2&#x27;);
@@ -985,7 +988,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       const plot = root.querySelector(&#x27;.rx2-plot&#x27;);
       const slider = root.querySelector(&#x27;[data-slider]&#x27;);
       const exact = 1 / 3;
-      let method = &#x27;lower&#x27;;
+      let method = &#x27;upper&#x27;;
       const f = x =&gt; x * x;
       const fmt = v =&gt; v.toFixed(8).replace(/0+$/, &#x27;&#x27;).replace(/\.$/, &#x27;&#x27;);
       function sums(n) {
@@ -1005,7 +1008,7 @@ html&gt;body{padding:0}&lt;/style&gt;
       function draw() {
         const n = +slider.value;
         const width = Math.max(320, Math.round(plot.getBoundingClientRect().width));
-        const height = width &lt; 520 ? 290 : 400;
+        const height = width &lt; 520 ? 270 : 330;
         const m = { l: 58, r: 18, t: 20, b: 48 };
         const iw = width - m.l - m.r, ih = height - m.t - m.b;
         const x = v =&gt; m.l + v * iw;
@@ -1039,11 +1042,9 @@ html&gt;body{padding:0}&lt;/style&gt;
         svg.append(el(&#x27;text&#x27;,{x:x(.72),y:y(.72*.72)-12,&#x27;text-anchor&#x27;:&#x27;start&#x27;},&#x27;f(x) = x²&#x27;));
         const s=sums(n), approx=s[method], names={upper:&#x27;superior&#x27;,lower:&#x27;inferior&#x27;,mid:&#x27;del punto medio&#x27;};
         root.querySelector(&#x27;[data-n]&#x27;).textContent=n;
-        [&#x27;lower&#x27;,&#x27;mid&#x27;,&#x27;upper&#x27;].forEach(key =&gt; {
-          const absoluteError = Math.abs(s[key] - exact);
-          const relativeError = absoluteError / Math.abs(exact);
+        [&#x27;upper&#x27;,&#x27;lower&#x27;,&#x27;mid&#x27;].forEach(key =&gt; {
           root.querySelector(`[data-${key}]`).textContent=fmt(s[key]);
-          root.querySelector(`[data-${key}-error]`).textContent=`Error absoluto: ${fmt(absoluteError)}\nError relativo: ${fmt(relativeError)}\nError relativo porcentual: ${(relativeError*100).toFixed(5)}%`;
+          root.querySelector(`[data-${key}-error]`).textContent=`Error relativo: ${(Math.abs(s[key]-exact)/exact*100).toFixed(5)}%`;
         });
         root.querySelector(&#x27;[data-note]&#x27;).textContent=`La suma ${names[method]} ${approx&gt;exact?&#x27;sobreestima&#x27;:approx&lt;exact?&#x27;subestima&#x27;:&#x27;coincide con&#x27;} el área exacta por ${fmt(Math.abs(approx-exact))}.`;
       }
